@@ -16,7 +16,7 @@ services:
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
             - ../apps/display_detections_cam.py:/yolov3-tf2/display_detections_cam.py
         ports:
-            - 50053:50051
+            - 50054:50051
         runtime: nvidia
         command: sleep infinity
-        # command: /bin/bash -c "sleep 5; python darknet_service.py"
+        # command: /bin/bash -c "sleep 5; python3 darknet_service.py"
