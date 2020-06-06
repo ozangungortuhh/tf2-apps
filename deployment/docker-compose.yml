@@ -1,11 +1,11 @@
 version: '2.3'
 services:
 
-    tensorflow:
+    tensorflow2:
         build:
             context: ../
             dockerfile: ./build/tensorflow2.1-gpu.Dockerfile
-        container_name: tensorflow
+        container_name: tensorflow2
         environment:
             - "QT_X11_NO_MITSHM=1"
             - "DISPLAY"
