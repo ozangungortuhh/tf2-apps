@@ -1,0 +1,22 @@
+version: '2.3'
+services:
+
+    tensorflow:
+        build:
+            context: ../
+            dockerfile: ./build/tensorflow2.1-gpu.Dockerfile
+        container_name: tensorflow
+        environment:
+            - "QT_X11_NO_MITSHM=1"
+            - "DISPLAY"
+            - "NVIDIA_VISIBLE_DEVICES=0"
+        devices: 
+            - /dev/video0:/dev/video0
+        volumes: 
+            - /tmp/.X11-unix:/tmp/.X11-unix:rw
+            - ../apps/display_detections_cam.py:/yolov3-tf2/display_detections_cam.py
+        ports:
+            - 50053:50051
+        runtime: nvidia
+        command: sleep infinity
+        # command: /bin/bash -c "sleep 5; python darknet_service.py"
