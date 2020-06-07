@@ -19,7 +19,7 @@ services:
             - ../apps/display_detections_cam.py:/yolov3-tf2/display_detections_cam.py
             - ../apps/yolov3-tf2_service.py:/yolov3-tf2/yolov3-tf2_service.py
             - ../apps/yolov3-tf2_client.py:/yolov3-tf2/yolov3-tf2_client.py
-            - ../apps/test_service.py:/yolov3-tf2/test_service.py
+            - ../apps/tf2_test_service.py:/yolov3-tf2/tf2_test_service.py
         ports:
             - 50054:50051
         runtime: nvidia
