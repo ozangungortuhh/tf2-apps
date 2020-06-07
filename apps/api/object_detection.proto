@@ -1,5 +1,5 @@
 syntax = "proto3";
-package darknet_detection;
+package object_detection;
 
 message Image {
     int64 nanoseconds = 1;
@@ -22,6 +22,6 @@ message Detection {
     repeated Object objects = 1;
 }
 
-service DarknetDetection{
-    rpc darknetDetection(Image) returns (Detection) {}
+service ObjectDetection{
+    rpc objectDetection(Image) returns (Detection) {}
 }
