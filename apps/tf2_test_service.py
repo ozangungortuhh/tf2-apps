@@ -11,24 +11,25 @@ ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 class ObjectDetectionServicer(object_detection_pb2_grpc.ObjectDetectionServicer):
     def __init__(self):
-        print("Initializied test service")
+        print("Initializied test service for tf2")
     
     def objectDetection(self, request, data):
         # Receive img from gRPC client
         np_img = np.fromstring(request.data, np.uint8)
         cv_img = cv2.imdecode(np_img, cv2.COLOR_BGR2RGB)
         print("Received the image with shape: ", cv_img.shape)
-        
         objects = []
-
+        
+        # Create a test BBox
         new_obj = object_detection_pb2.Object(
-            label = "test",
+            label = "test_tf2",
             probability = 100,
             xmin = 100,
             ymin = 100,
             xmax = 200,
             ymax = 200,
         )
+        # Return the test detection
         objects.append(new_obj)
         return object_detection_pb2.Detection(objects=objects)
 
