@@ -14,7 +14,11 @@ services:
             - /dev/video0:/dev/video0
         volumes: 
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
+            - ../assets:/assets
+            - ../apps/api:/yolov3-tf2/api
             - ../apps/display_detections_cam.py:/yolov3-tf2/display_detections_cam.py
+            - ../apps/yolov3-tf2_service.py:/yolov3-tf2/yolov3-tf2_service.py
+            - ../apps/yolov3-tf2_client.py:/yolov3-tf2/yolov3-tf2_client.py
         ports:
             - 50054:50051
         runtime: nvidia
