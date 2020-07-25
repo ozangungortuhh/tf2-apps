@@ -15,14 +15,17 @@ services:
         volumes: 
             - /tmp/.X11-unix:/tmp/.X11-unix:rw
             - ../assets:/assets
+            - ../weights:/weights
             - ../apps/api:/yolov3-tf2/api
-            - ../apps/display_detections_cam.py:/yolov3-tf2/display_detections_cam.py
+            - ../apps/display_detections_cam_yolov3.py:/yolov3-tf2/display_detections_cam.py
+            - ../apps/display_detections_cam_model.py:/tf2-api/models/research/object_detection/display_detections_model.py
             - ../apps/yolov3-tf2_service.py:/yolov3-tf2/yolov3-tf2_service.py
             - ../apps/yolov3-tf2_client.py:/yolov3-tf2/yolov3-tf2_client.py
             - ../apps/tf2_test_service.py:/yolov3-tf2/tf2_test_service.py
             - ../apps/tf2_detection_service.py:/yolov3-tf2/tf2_detection_service.py
+            - ../apps/test_efficientdet.py:/EfficientDet/test_efficientdet.py
         ports:
-            - 50054:50051
+            - 50055:50051
         runtime: nvidia
         command: sleep infinity
         # command: /bin/bash -c "sleep 5; python3 darknet_service.py"

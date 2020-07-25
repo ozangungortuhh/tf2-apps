@@ -37,3 +37,6 @@ RUN pip install -r requirements.txt
 COPY ./weights ./weights
 RUN python convert.py --weights ./weights/yolov3.weights --output ./checkpoints/yolov3.tf
 
+WORKDIR /
+RUN git clone https://github.com/xuannianz/EfficientDet.git
+WORKDIR /EfficientDet
